@@ -1,0 +1,149 @@
+Paradigmas de programación:
+    Lenguajes de programación estructurados
+        C, Pascal, Ada
+    Lenguajes Programacion Orientada a Objetos (POO)
+        C++, Java, C#, Javascript (+/-), PHP, Go, ...
+    Lenguajes Funcionales
+        Javascript, Haskell, ...
+    Lenguajes Lógicos
+        Prolog
+    ...
+
+Java
+    Lenguaje de programación orientado a objetos
+    Sintaxis similar a C++
+    Portable, es decir se puede ejecutar en cualquier sistema operativo
+    Ejecuta en la Máquina Virtual de Java (JVM)
+    Amplia biblioteca estándar
+    Uso común en aplicaciones empresariales, desarrollo web y Android
+
+
+Categorias de lenguajes de programación segun la forma de ejecución
+    Lenguajes compilados: Traducen a otro lenguaje. Por ejemplo: C, C++, Java, Go, C#
+    Lenguajes interpretados: Se ejecutan directamente por un intérprete sin necesidad de compilación previa. Por ejemplo: Python, Javascript, Ruby, PHP, Perl
+
+Compilación:
+    Traducir un lenguaje de alto nivel a un lenguaje de bajo nivel.
+    Por ejemplo:
+        c -> código máquina (.exe)
+        c++ -> código máquina (.exe)
+        Java -> bytecode (.class)
+
+    El código fuente de Java se compila en bytecode
+    El bytecode se ejecuta en la Máquina Virtual de Java (JVM)
+    Permite la portabilidad entre diferentes sistemas operativos
+
+¿Que necesito para programar en Java?
+    - Java Development Kit (JDK) instalado en tu sistema
+    - Un editor de texto o un entorno de desarrollo integrado (IDE) como IntelliJ IDEA, Eclipse o NetBeans, VSCode, Cursor, Antigravity...
+    - Configurar las variables de entorno (JAVA_HOME y PATH) correctamente
+
+
+IDE: 
+    Entorno de desarrollo integrado que facilita la programación
+    Proporciona herramientas como editor de código, depurador, compilador, gestor de proyectos, etc.
+    Ejemplos: IntelliJ IDEA, Eclipse, NetBeans, VSCode
+
+VSCode Forks:
+    - Cursor
+    - Antigravity
+
+Flujo de ejecución en Java:
+    1. Escribir el código fuente en un archivo con extensión .java
+    2. Compilar el código fuente usando el compilador de Java (javac) para generar bytecode (.class)
+    3. Ejecutar el bytecode en la Máquina Virtual de Java (JVM) usando el comando java
+    4. La JVM interpreta o compila el bytecode a código máquina según sea necesario y ejecuta el programa
+
+
+Trabajar con Java en VSCode
+    1. Instalar extension Extension Pack for Java en VSCode
+    2. Shift + Ctrl + P y escribir "Java: Create Java Project" (Paleta de comandos)
+    3. Seleccionar la ubicación del proyecto y el tipo de proyecto (Elegir No build tools).
+    4. Crear clases Java dentro del proyecto y empezar a programar
+
+Tipos de datos primitivos en Java:
+    - byte: 8 bits, rango: -128 a 127
+    - short: 16 bits, rango: -32,768 a 32,767
+    - int: 32 bits, rango: -2,147,483,648 a 2,147,483,647
+    - long: 64 bits, rango: -9,223,372,036,854,775,808 a 9,223,372,036,854,775,807
+    - float: 32 bits, números de punto flotante
+    - double: 64 bits, números de punto flotante
+    - char: 16 bits, representa un solo carácter Unicode
+    - boolean: 1 bit, valores: true o false
+
+    byte numero = 100;
+    short numeroCorto = 1000;
+    int numeroEntero = 100000;
+    long numeroLargo = 10000000000L;
+    float numeroFlotante = 10.5f;
+    double numeroDoble = 20.5;
+    char caracter = 'A';
+    boolean esVerdadero = true;
+
+Tipos de datos no primitivos en Java:
+    - String: Representa una secuencia de caracteres 
+        String nombre = "Juan"
+    - Arrays: Colección de elementos del mismo tipo (int[] numeros = {1, 2, 3})
+    
+    - Clases: Plantillas para crear objetos
+    - Interfaces: Definen un contrato que las clases deben cumplir
+    - Enums: Conjunto de constantes con nombre
+
+Estándares de codificación en Java:
+    UpperCamelCase para nombres de clases (Ejemplo: MiClase)
+    lowerCamelCase para nombres de variables y métodos (Ejemplo: miVariable, miMetodo)
+    Constantes en mayúsculas con guiones bajos (Ejemplo: MI_CONSTANTE)
+    Palabras reservadas no deben ser utilizadas como nombres de variables, métodos o clases (Ejemplo: int, class, if, else)
+
+
+Clase:
+    Es una estructura de datos que define un tipo de dato personalizado en Java.
+    Plantilla para crear objetos en Java. Define atributos (propiedades) y métodos (comportamientos) que los objetos de esa clase tendrán.
+
+    Ejemplo de una clase:
+
+    class Persona {
+        String nombre;
+        String apellido;
+        int edad;
+
+        void imprimirNombre() {
+            System.out.println(nombre + " " + apellido);
+        }
+    }
+
+    La forma de inicializar una variable haciendo uso de una clase es creando un objeto de esa clase:
+    
+    Persona p = new Persona(); //Inicializar objeto vacío, se reserva espacio en memoria para el objeto, al utilizar new se dice que estamos creando una nueva instancia de la clase Persona, este proceso se le conoce como instanciación.
+    p.nombre = "Juan";
+    p.apellido = "Pérez";
+    p.edad = 30;
+
+    Nota: Dentro de un archivo .java solo puede haber una clase pública.
+
+
+Modificadores de acceso en Java:
+    - default (sin modificador): La clase, método o variable es accesible solo dentro del mismo paquete.
+    - public: La clase, método o variable es accesible desde cualquier otra clase.
+    - private: La clase, método o variable es accesible solo dentro de la misma clase.
+    - protected: La clase, método o variable es accesible dentro del mismo paquete y por las subclases.
+
+
+Pilares de la programación orientada a objetos en Java:
+    - Encapsulamiento: Consiste en ocultar los detalles internos de una clase y exponer solo lo necesario a través de métodos públicos.
+        Metodos sets y gets: Son métodos utilizados para acceder y modificar los atributos privados de una clase.
+        Ejemplo:
+            private String nombre;
+
+            public String getNombre() {
+                return nombre;
+            }
+
+            public void setNombre(String nombre) {
+                this.nombre = nombre;
+            }
+
+    
+    - Abstracción: Permite representar conceptos del mundo real mediante clases abstractas e interfaces, ocultando los detalles de implementación.
+    - Herencia: Permite que una clase adquiera las propiedades y comportamientos de otra clase.
+    - Polimorfismo: Capacidad de un objeto de tomar muchas formas, generalmente a través de la sobrecarga y la sobrescritura de métodos.

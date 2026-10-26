@@ -1,0 +1,89 @@
+Arreglos: 
+    int numeros[] = new int[10]; //Arreeglos de tamaño fijo
+    numeros[0] = 1; //Asignación de valor a un elemento del arreglo
+    numeros[1] = 2; //Asignación de valor a otro elemento del arreglo
+    numeros[2] = 3; //Asignación de valor a otro elemento del arreglo
+
+
+    ArrayList numeros<Integer> = new ArrayList<Integer>();
+    numeros.add(41); //Asignación de valor a un elemento del ArrayList
+    numeros.add(32); //Asignación de valor a otro elemento del ArrayList
+    numeros.add(23); //Asignación de valor a otro elemento del ArrayList
+
+    numeros.remove(0); //Elimina 41
+    numeros.get(0); //32
+    numeros.size(); //Tamaño del ArrayList
+
+    ArrayList numeros2<Float> = new ArrayList<Float>();
+
+
+
+Wrappers (Clases envolventes de tipos primitivos):
+    int => Integer
+    float => Float
+    double => Double
+    char => Character
+    boolean => Boolean
+    long => Long
+    short => Short
+    byte => Byte
+
+
+    Float
+
+
+Constructor:
+    Primer metodo en ejecutarse al crear un objeto de la clase.
+    Se utiliza para inicializar los atributos del objeto y realizar cualquier configuración necesaria al momento de su creación.
+    No tiene un tipo de retorno, ni siquiera void.
+    Su nombre debe coincidir exactamente con el nombre de la clase.
+    Puede tener parámetros para recibir valores al momento de la creación del objeto.
+    Se puede sobrecargar
+
+Sobrecarga de metodos:
+    Consiste en definir varios métodos con el mismo nombre pero con diferentes listas de parámetros dentro de la misma clase.
+
+
+Modificador static:
+    Sirve para acceder a atributos o metodos sin necesidad de tener una instancia, se accede a traves del nombre de la clase. En el caso de los atributos el valor es el mismo para todos los objetos.
+
+Modificador final:
+    Se utiliza para definir constantes, es decir valores que no cambian.
+
+Paquetes para trabajar con GUI en Java: 
+    AWT (Abstract Window Toolkit) => Deprecado
+    Swing 
+    JavaFX
+
+
+
+
+Persona
+    Nombre
+    Apellido
+    Fecha Nacimiento
+    Genero
+    Identidad
+    Correo
+    Carrera
+    matricular()
+
+Alumno
+    Cuenta    
+    Promedio
+    reprobar()
+    cancelar()
+
+
+Maestro
+    Codigo de empleado
+    Salario
+    registrarCalificaciones()
+
+
+
+
+
+
+
+
