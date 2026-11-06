@@ -11,17 +11,18 @@ public class App {
     // private ArrayList<Tutor> tutores;
     // private ArrayList<Doctor> doctores;
     private ArrayList<Persona> personas;
-
+    private ArrayList<Mascota> mascotas;
+    
     public App() {
 
-        Persona p1 = new Tutor(1, "Juan", "Perez", 22, "Masculino", "23423423", null, new Date());
-        Persona p2 = new Doctor(2, "Pedro", "Martinez", 44, "Masculino", "23424", "Cirujano", 34345345);
-        
+        Persona p1 = new Tutor("0801-1231-12345", "Juan", "Perez", 22, "Masculino", "23423423", null, new Date());
+        Persona p2 = new Doctor("0801-1231-12346", "Pedro", "Martinez", 44, "Masculino", "23424", "Cirujano", 34345345);
         imprimirInformacionPersona(p1);
         imprimirInformacionPersona(p2);
         // this.tutores = new ArrayList<Tutor>();
         // this.doctores = new ArrayList<Doctor>();
         this.personas = new ArrayList<Persona>();
+        this.mascotas = new ArrayList<Mascota>();
         menu();
     }
 
@@ -45,7 +46,8 @@ public class App {
                 "5. Registrar doctor\n" +
                 "6. Mostrar tutores\n" +
                 "7. Mostrar doctores\n" +
-                "8. Salir\n" + 
+                "8. Mostrar tooooodas las mascotas\n" +
+                "9. Salir\n" + 
                 "==========================="
             );
             
@@ -72,6 +74,9 @@ public class App {
                     mostrarPersonas("Doctor");
                     break;
                 case "8":
+                    mostrarTodasLasMascotas();
+                    break;
+                case "9":
                     JOptionPane.showMessageDialog(null, "Saliendo del programa");
                     break;
                 default:
@@ -79,19 +84,56 @@ public class App {
                     break;
             }
 
-        } while (!this.opcion.equals("8"));
+        } while (!this.opcion.equals("9"));
+    }
+
+    public Tutor obtenerTutor(String mensaje) {
+        int indiceTutor = Integer.parseInt(JOptionPane.showInputDialog(mensaje + listaPersonas("Tutor")));
+        return (Tutor) personas.get(indiceTutor);
     }
 
     public void registrarMascota() {
-        JOptionPane.showMessageDialog(null, "Registrar mascota");
+        Tutor tutor = obtenerTutor("¿Quién es el tutor de la mascota?, ingrese el indice\n");
+        Mascota mascota = new Mascota();
+        mascota.solicitarInformacion(mascotas);
+        tutor.agregarMascota(mascota);
+        mascotas.add(mascota);
     }
 
+    //Mostrar mascotas de solo un tutor
     public void mostrarMascotas() {
-        JOptionPane.showMessageDialog(null, "Mostrar mascotas");
+        Tutor tutor = obtenerTutor("¿Quién es el tutor de las mascotas?, ingrese el indice\n");
+        ArrayList<Mascota> mascotas = tutor.getMascotas();
+        String mascotasStr = "";
+        for(Mascota mascota : mascotas) {
+            mascotasStr += mascota.toString() + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, mascotasStr);
+    }
+
+    //Mostrar todas las mascotas sin importar el tutor
+    public void mostrarTodasLasMascotas() {
+        String mascotasStr = "";
+        for(Mascota mascota : this.mascotas) {
+            mascotasStr += mascota.toString() + "\n";
+        }
+
+        JOptionPane.showMessageDialog(null, mascotasStr);
     }
 
     public void eliminarMascota() {
-        JOptionPane.showMessageDialog(null, "Eliminar mascota");
+        Tutor tutor = obtenerTutor("¿Quién es el tutor de la mascota a eliminar?, ingrese el indice\n");
+        ArrayList<Mascota> mascotas = tutor.getMascotas();
+        String mascotasStr = "";
+        for(Mascota mascota : mascotas) {
+            mascotasStr += mascotas.indexOf(mascota) + "-- " +  mascota.toString() + "\n";
+        }
+
+        int indiceMascota = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice de la mascota a eliminar: \n" + mascotasStr));
+        Mascota mascotaEliminar = mascotas.get(indiceMascota); 
+        mascotas.remove(mascotaEliminar);
+        this.mascotas.remove(mascotaEliminar);
     }
 
     public void registrarPersona(Persona persona) {
@@ -115,17 +157,23 @@ public class App {
     //     personas.add(doctor);
     // }
 
-
-    public void mostrarPersonas (String tipo) {
+    public String listaPersonas(String tipo) {
         String personasStr = "";
         for (Persona persona : personas) {
             if (tipo.equals("Tutor") && persona instanceof Tutor) {
-                personasStr += persona.toString() + "\n";
+                personasStr += personas.indexOf(persona) + "--" + persona.toString() + "\n";
             } else if (tipo.equals("Doctor") && persona instanceof Doctor) {
                 personasStr += persona.toString() + "\n";
             }
+
+            
         }
-        JOptionPane.showMessageDialog(null, personasStr);
+
+        return personasStr;
+    }
+
+    public void mostrarPersonas (String tipo) {
+        JOptionPane.showMessageDialog(null, listaPersonas(tipo));
     }
 
 
@@ -147,7 +195,7 @@ public class App {
 
     public void cargarInformacion() {
         Doctor doctor = new Doctor(
-            1,
+            "0801-1231-12347",
             "Pedro",
             "Martinez",
             40,
@@ -158,7 +206,7 @@ public class App {
         );
         
         Tutor t1 = new Tutor(
-            1,
+            "0801-1231-12348",
             "Juan",
             "Perez",
             33,

@@ -8,7 +8,7 @@ public class Tutor extends Persona{
     private Date fechaRegistro;
 
     public Tutor(
-            int id,
+            String id,
             String nombre,
             String apellido,
             int edad,
@@ -56,6 +56,11 @@ public class Tutor extends Persona{
     @Override 
     public String toString() {
         return "Tutor [mascotas=" + mascotas + ", fechaRegistro=" + fechaRegistro + ", " + super.toString() + "]";
+    }
+
+    @Override
+    public void mostrarDatos() {
+        System.out.println("Este es el metodo sobreescrito");
     }
     
 }

@@ -2,8 +2,8 @@ package clases;
 
 import javax.swing.JOptionPane;
 
-public class Persona {
-    protected int id;
+public abstract class Persona {
+    protected String id;
     protected String nombre;
     protected String apellido;
     protected int edad;
@@ -12,7 +12,7 @@ public class Persona {
 
     public Persona() { }
 
-    public Persona(int id, String nombre, String apellido, int edad, String genero, String telefono) {
+    public Persona(String id, String nombre, String apellido, int edad, String genero, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -55,11 +55,27 @@ public class Persona {
     }
 
     public void solicitarInformacion() {
-        this.nombre = JOptionPane.showInputDialog("Nombre del tutor: ");
-        this.apellido = JOptionPane.showInputDialog("Apellido del tutor: ");
+        String tipoPersona = "";
+        if (this instanceof Tutor) { /// objeto instanceof Clase
+            tipoPersona = "tutor";
+        } else if (this instanceof Doctor) {
+            tipoPersona = "doctor";
+        }
+        else {
+            tipoPersona = "persona";
+        }
+        do {
+            this.id = JOptionPane.showInputDialog("Identidad: ");
+        } while (!Util.validarPatron("\\d{4}-\\d{4}-\\d{5}", this.id, "La identidad debe cumplir con el patron 0000-0000-00000"));
+        
+        this.nombre = JOptionPane.showInputDialog("Nombre del " + tipoPersona + ": ");
+        this.apellido = JOptionPane.showInputDialog("Apellido del " + tipoPersona + ": ");
         this.genero = JOptionPane.showInputDialog("Genero: ");
         this.edad = Integer.parseInt(JOptionPane.showInputDialog("Edad: "));
-        this.telefono = JOptionPane.showInputDialog("Telefono: ");
+        
+        do {
+            this.telefono = JOptionPane.showInputDialog("Telefono: ");
+        } while (!Util.validarPatron("\\d{4}-\\d{4}", this.telefono, "El telefono debe cumplir con el patron 0000-0000"));
     }
 
     @Override
@@ -67,5 +83,7 @@ public class Persona {
         return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero="
                 + genero + ", telefono=" + telefono + "]";
     }
+
+    public abstract void mostrarDatos();
 
 }

@@ -7,7 +7,7 @@ public class Doctor extends Persona {
     private double salario;
 
     public Doctor(
-        int id,
+        String id,
         String nombre, 
         String apellido, 
         int edad, 
@@ -49,6 +49,11 @@ public class Doctor extends Persona {
     @Override
     public String toString() {
         return "Doctor [especialidad=" + especialidad + ", salario=" + salario + ", " + super.toString() + "]";
+    }
+
+    @Override 
+    public void mostrarDatos() {
+        System.out.println(toString());
     }
 
 }
