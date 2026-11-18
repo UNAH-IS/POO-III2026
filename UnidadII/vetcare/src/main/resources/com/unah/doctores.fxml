@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.unah.DoctoresController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="18.0" layoutY="34.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <GridPane layoutX="14.0" layoutY="14.0" prefHeight="235.0" prefWidth="379.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="157.199951171875" minWidth="10.0" prefWidth="115.99999389648437" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="262.4000244140625" minWidth="10.0" prefWidth="257.6000061035156" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Identidad:" />
+                        <Label text="Nombre:" GridPane.rowIndex="1" />
+                        <Label text="Apellido:" GridPane.rowIndex="2" />
+                        <Label text="Fecha Nacimiento:" GridPane.rowIndex="3" />
+                        <Label text="Genero:" GridPane.rowIndex="4" />
+                        <Label text="Telefono:" GridPane.rowIndex="5" />
+                        <Label text="Especialidad:" GridPane.rowIndex="6" />
+                        <Label text="Salario:" GridPane.rowIndex="7" />
+                        <TextField fx:id="txtIdentidad" GridPane.columnIndex="1" />
+                        <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <DatePicker fx:id="dpFechaNacimiento" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                           <children>
+                              <RadioButton fx:id="rbFemenino" mnemonicParsing="false" text="Femenino">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="toggleGenero" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="rbMasculino" mnemonicParsing="false" text="Masculino" toggleGroup="$toggleGenero" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <padding>
+                              <Insets left="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="cbEspecialidad" prefHeight="26.0" prefWidth="273.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="txtSalario" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                     </children>
+                  </GridPane>
+                  <VBox layoutX="408.0" layoutY="14.0" prefHeight="200.0" prefWidth="98.0" spacing="7.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#limpiarControles" prefHeight="26.0" prefWidth="98.0" text="Nuevo" />
+                        <Button mnemonicParsing="false" onAction="#guardarDoctor" prefHeight="26.0" prefWidth="100.0" text="Guardar" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Eliminar" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ListView fx:id="lvDoctores" layoutX="51.0" layoutY="11.0" prefHeight="256.0" prefWidth="520.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
