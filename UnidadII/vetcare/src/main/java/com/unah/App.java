@@ -1,6 +1,7 @@
 package com.unah;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import com.unah.clases.Doctor;
 
@@ -30,6 +31,8 @@ public class App extends Application {
     private Scene mascotasScene;
 
     public App () {
+        cargarDoctores();
+
         especialidades.add("Cardiología para gatos");
         especialidades.add("Dermatología para perros");
         especialidades.add("Pediatría para pajaros");
@@ -56,6 +59,30 @@ public class App extends Application {
             System.err.println("Error al cargar archivos fxml");
             e.printStackTrace();
         }
+    }
+
+    public void cargarDoctores() {
+        this.doctores.add(new Doctor(
+            "0000-0000-00000",
+            "Juan",
+            "Pere",
+            "Masculino",
+            "1234-1234",
+            LocalDate.of(1980, 1, 1),
+            "Cardiología para gatos",
+            34353
+        ));
+
+        this.doctores.add(new Doctor(
+            "0000-0000-00001",
+            "Maria",
+            "Lopez",
+            "Femenino",
+            "5678-5678",
+            LocalDate.of(1990, 2, 2),
+            "Dermatología para perros",
+            45454
+        ));
     }
 
     @Override
